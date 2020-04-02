@@ -1,0 +1,61 @@
+{
+  "version": "v1.0",
+  "author": "ModelArts Service of Huawei Cloud",
+  "authorEmail": "zhangzhenyu6@huawei.com",
+  "framework": "Moxing v1.13.0 + TensorFlow v1.13.1",
+  "model": "ResNet-50",
+  "hardware": "32 nodes with InfiniBand (8*V100 with NVLink for each node)",
+  "timestamp": "2019-06-06",
+  "misc": {
+    "backend": "32 nodes 8*V100 (NVLink+GDR+horovod)",
+    "CUDA version": "10.0",
+    "CuDNN version": "7.4.2",
+    "horovod version": "0.16.2",
+    "NCCL version": "2.4.2-1",
+    "openmpi version": "v4.0.0",
+    "InfiniBand version": "4.3-1.0.1.0",
+    "optimizer": "SGD with Dynamic Momentum",
+    "horovod_compression": "fp16",
+    "mixed_precision": true,
+    "use_xla": true,
+    "use_nesterov": true,
+    "use_lars": true,
+    "max_momentum": 0.98,
+    "min_momentum": 0.9,
+    "weightDecay": 0.0001,
+    "schedule": {
+      "learning_rate": "linear cosine decay",
+      "max_lr": 28.0,
+      "min_lr": 0.2
+    },
+    "imageSize": [
+      {
+        "image_size": 96,
+        "epochs": 15
+      },
+      {
+        "image_size": 128,
+        "epochs": 16
+      },
+      {
+        "image_size": 224,
+        "epochs": 4
+      },
+      {
+        "image_size": 288,
+        "epochs": 1
+      }
+    ],
+    "batchSize": [
+      {
+        "batch_size": 32768,
+        "epochs": 35
+      },
+      {
+        "batch_size": 16384,
+        "epochs": 1
+      }
+    ]
+  },
+  "usedBlacklist": true
+}
